@@ -8,7 +8,7 @@
      CONFIG — change these five lines and the whole site updates.
      ====================================================================== */
   var CONFIG = {
-    business: 'Wyndham Landscapes & Concreting',   // PLACEHOLDER: real trading name
+    business: 'Viking Landscapes',                 // appears in the quote email subject/body
     phone:    '0416 720 401',                      // display format
     phoneIntl:'+61416720401',                      // dialable format
     email:    'quotes@example.com.au',             // PLACEHOLDER: real inbox
