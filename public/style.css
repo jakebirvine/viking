@@ -44,6 +44,10 @@
 
 *,*::before,*::after{box-sizing:border-box}
 
+/* Default is a bright blue flash on every tap in Chrome/Android. Swap it for
+   the brand green so tap feedback still reads, but on-brand. */
+a,button,label,summary,input,select,textarea{-webkit-tap-highlight-color:rgba(127,176,105,.2)}
+
 html{
   scroll-behavior:smooth;
   scroll-padding-top:calc(var(--head-h) + 16px);
@@ -116,6 +120,7 @@ p:last-child{margin-bottom:0}
 }
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:translateY(0)}
+.btn,.chip,summary,.nav a{touch-action:manipulation}
 .btn-lg{padding:16px 30px;font-size:1.04rem}
 
 .btn-primary{--bg:var(--brass);--fg:#1B1304;--bd:var(--brass);box-shadow:0 14px 34px -14px rgba(224,160,60,.75)}
@@ -434,6 +439,11 @@ p:last-child{margin-bottom:0}
   border:1px solid var(--line-soft);border-radius:26px;overflow:hidden;
   box-shadow:0 40px 90px -40px rgba(0,0,0,.95);
 }
+/* Grid children default to min-width:auto and refuse to shrink below their
+   content's min-content width — on a 320px screen that pushed the form ~50px
+   past the panel, where overflow-x:hidden quietly clipped it. */
+.quote-intro,.quote-form{min-width:0}
+
 .quote-intro{
   padding:clamp(32px,4vw,52px);
   background:linear-gradient(165deg,rgba(35,52,28,.94),rgba(12,16,10,.96));
@@ -466,7 +476,10 @@ a.contact-line:hover{background:rgba(127,176,105,.12);border-color:rgba(127,176,
 input[type=text],input[type=tel],input[type=email],select,textarea{
   width:100%;padding:13px 15px;border-radius:11px;
   background:rgba(241,243,236,.045);border:1px solid var(--line);
-  color:var(--ink);font:inherit;font-size:.97rem;
+  color:var(--ink);font:inherit;
+  /* Must not drop below 16px: iOS Safari zooms the whole page in when a
+     smaller field is focused, and never zooms back out. */
+  font-size:16px;
   transition:border-color .2s,background .2s,box-shadow .2s;
 }
 textarea{resize:vertical;min-height:96px}
@@ -536,6 +549,32 @@ input:focus,select:focus,textarea:focus{
 }
 .call-bar .btn{flex:1;padding:14px 12px}
 
+/* ---------- touch devices ----------
+   A touchscreen has no hover, so tapping an element latches its :hover state
+   and leaves it stuck until you tap somewhere else — cards sit lifted, buttons
+   stay highlighted. Neutralise the movement and give real :active feedback
+   instead, which fires and releases with the finger. */
+@media (hover:none){
+  .btn:hover,
+  .card:hover,
+  .shot:hover,
+  .contact-line:hover,
+  a.contact-line:hover,
+  .brand:hover .brand-badge{transform:none}
+
+  .card:hover{border-color:var(--line-soft);background:var(--panel)}
+  .shot:hover{border-color:var(--line-soft)}
+  a.contact-line:hover{background:rgba(241,243,236,.05);border-color:var(--line-soft)}
+  .brand:hover .brand-badge{box-shadow:0 8px 20px -10px rgba(62,156,82,.95), inset 0 1px 0 rgba(255,255,255,.22)}
+  .nav a:hover{background:none;color:var(--ink-soft)}
+  .foot-col a:hover{color:var(--ink-dim)}
+  .chip:hover span{border-color:var(--line);color:var(--ink-soft)}
+
+  .btn:active{transform:scale(.97);opacity:.9}
+  .card:active,.shot:active{border-color:rgba(127,176,105,.35)}
+  .chip:active span{border-color:rgba(127,176,105,.5)}
+}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.8,.3,1),transform .7s cubic-bezier(.2,.8,.3,1)}
 .reveal.in{opacity:1;transform:none}
@@ -565,7 +604,9 @@ input:focus,select:focus,textarea:focus{
   body{font-size:16px}
   .head-inner{gap:12px}
   .btn-call span{display:none}
-  .btn-call{padding:10px 13px}
+  /* 44px is Apple's minimum comfortable tap target; this is the primary
+     "ring us" button, so it should not be the smallest thing on screen */
+  .btn-call{padding:10px 13px;min-width:46px;min-height:46px}
   .burger{display:flex}
   .nav{
     position:fixed;inset:var(--head-h) 0 auto 0;flex-direction:column;align-items:stretch;gap:2px;
@@ -582,12 +623,50 @@ input:focus,select:focus,textarea:focus{
   .hero-cta{flex-direction:column;align-items:stretch}
   .hero-cta .btn{width:100%}
   .call-bar{display:flex}
-  body{padding-bottom:76px}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
   .row{grid-template-columns:1fr;gap:0}
   .area-col ul{columns:2}
   .foot-inner{grid-template-columns:1fr}
   .section{padding:66px 0}
   .sec-head{margin-bottom:34px}
+
+  /* footer links were 17px tall — fine with a mouse, a coin-toss with a thumb */
+  .foot-col ul{gap:2px}
+  .foot-col a{display:flex;align-items:center;min-height:44px}
+  .foot-brand{margin-bottom:8px}
+
+  /* chips sat at 43px, a hair under the comfortable minimum */
+  .chip span{padding:12px 16px}
+  .chips{gap:9px}
+
+  /* hero content already exceeds min-height here, so this is purely the gap
+     before the services section — not vertical centring */
+  .hero{padding-bottom:110px}
+}
+
+/* A phone held sideways is ~844×390 — wide enough to miss the 760px mobile
+   breakpoint, but far too short for a full-height hero, and it loses the
+   sticky call bar just when the fold gets tightest. Target short touch
+   viewports directly. */
+@media (max-height:520px) and (pointer:coarse){
+  /* Don't chase a 390px fold by deleting content — just stop the hero being a
+     full screen tall, keep the sticky call bar (the page's best converter, and
+     it's lost above 760px otherwise), and leave room under the last element so
+     nothing sits jammed behind the bar at rest. */
+  .hero{min-height:auto;padding-top:calc(var(--head-h) + 16px);padding-bottom:104px}
+  h1{font-size:clamp(1.75rem,4.4vw,2.4rem)}
+  .lede{font-size:.98rem;margin-bottom:20px}
+  .hero-cta{margin-bottom:16px}
+  .trust{display:none}
+  .call-bar{display:flex}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .section{padding:52px 0}
+  .sec-head{margin-bottom:28px}
+}
+
+/* Landscape on a notched phone puts the notch beside the content, not above it */
+@media (orientation:landscape){
+  .wrap{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
 }
 
 @media (max-width:420px){
