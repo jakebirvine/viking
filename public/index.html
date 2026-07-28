@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E120C">
+
+<!-- ==========================================================================
+     EDIT ME FIRST  —  everything that needs the real business details is
+     either in this <head>, in the data-* attributes below, or in the CONFIG
+     block at the top of site.js. Search the project for "PLACEHOLDER".
+     ========================================================================== -->
+
+<title>Wyndham Landscapes &amp; Concreting — Landscaping &amp; Concreting in Werribee, Wyndham &amp; Geelong</title>
+<meta name="description" content="Quality landscaping and concreting to the Wyndham and Geelong area. Werribee-based. Turf, retaining walls, exposed aggregate, driveways, decking and full backyard builds. Free quotes — 0416 720 401.">
+<meta name="keywords" content="landscaping Werribee, concreting Werribee, landscaper Wyndham, concreter Geelong, exposed aggregate Point Cook, retaining walls Tarneit, turf laying Hoppers Crossing">
+
+<!-- PLACEHOLDER DOMAIN: find-and-replace www.example.com.au across index.html,
+     robots.txt and sitemap.xml once the real domain is connected in Cloudflare. -->
+<link rel="canonical" href="https://www.example.com.au/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.example.com.au/">
+<meta property="og:title" content="Wyndham Landscapes &amp; Concreting — Werribee">
+<meta property="og:description" content="Quality landscaping and concreting to the Wyndham and Geelong area. Message us to organise a free quote.">
+<meta property="og:locale" content="en_AU">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Once you've got photos: save a 1200×630 crop as public/img/og.jpg and
+     uncomment the next line so links shared to Facebook/WhatsApp show it.
+<meta property="og:image" content="https://www.example.com.au/img/og.jpg">
+-->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E120C'/%3E%3Cpath d='M22 8c0 7-4.6 11.5-10.5 11.5C11.5 12.5 15.8 8 22 8z' fill='%237FB069'/%3E%3Crect x='6' y='22' width='20' height='2.4' rx='1.2' fill='%23C9CBC4'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LandscapingBusiness",
+  "name": "Wyndham Landscapes & Concreting",
+  "url": "https://www.example.com.au/",
+  "description": "Quality landscaping and concreting to the Wyndham and Geelong area.",
+  "telephone": "+61416720401",
+  "email": "quotes@example.com.au",
+  "address": { "@type": "PostalAddress", "addressLocality": "Werribee", "addressRegion": "VIC", "postalCode": "3030", "addressCountry": "AU" },
+  "areaServed": ["Werribee","Point Cook","Tarneit","Hoppers Crossing","Wyndham Vale","Truganina","Williams Landing","Manor Lakes","Little River","Lara","Corio","Geelong","Torquay","Ocean Grove"],
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 07:00-17:00, Sa 08:00-13:00"
+}
+</script>
+</head>
+
+<body>
+
+<!-- the scroll-driven landscape build animation -->
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="scene-scrim" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-head" id="siteHead">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="Wyndham Landscapes and Concreting — home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="url(#bg)"/>
+        <path d="M28.5 9.5c0 9.2-6 15-13.7 15C14.8 15.3 20.4 9.5 28.5 9.5z" fill="#7FB069"/>
+        <path d="M13 27c3-6.5 8-11.5 14-14.5" stroke="#0E120C" stroke-width="1.6" stroke-linecap="round" opacity=".55" fill="none"/>
+        <rect x="7" y="28.4" width="26" height="3" rx="1.5" fill="#C9CBC4"/>
+        <rect x="7" y="33.2" width="16" height="2.2" rx="1.1" fill="#C9CBC4" opacity=".5"/>
+        <defs><linearGradient id="bg" x1="0" y1="0" x2="40" y2="40">
+          <stop offset="0" stop-color="#1C2418"/><stop offset="1" stop-color="#0B0E09"/>
+        </linearGradient></defs>
+      </svg>
+      <span class="brand-text">
+        <!-- PLACEHOLDER: swap for the real trading name -->
+        <strong>Wyndham Landscapes</strong>
+        <small>&amp; Concreting · Werribee</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#work">Recent work</a>
+      <a href="#areas">Areas</a>
+      <a href="#faq">FAQ</a>
+      <a href="#quote" class="btn btn-ghost nav-quote">Free quote</a>
+    </nav>
+
+    <a class="btn btn-call" data-tel href="tel:+61416720401">
+      <svg viewBox="0 0 20 20" aria-hidden="true" class="ico"><path d="M4.2 2.6h3.1l1.5 3.8-2 1.3a10.6 10.6 0 0 0 5.5 5.5l1.3-2 3.8 1.5v3.1a1.6 1.6 0 0 1-1.8 1.6C8.5 16.6 3.4 11.5 2.6 4.4A1.6 1.6 0 0 1 4.2 2.6z" fill="currentColor"/></svg>
+      <span data-phone>0416 720 401</span>
+    </a>
+
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="head-progress" id="headProgress" aria-hidden="true"></div>
+</header>
+
+<!-- stage indicator tied to the background animation -->
+<aside class="stage-rail" id="stageRail" aria-hidden="true">
+  <ol>
+    <li data-stage="0"><i></i><span>Site walk</span></li>
+    <li data-stage="1"><i></i><span>Excavation</span></li>
+    <li data-stage="2"><i></i><span>Concrete</span></li>
+    <li data-stage="3"><i></i><span>Walls &amp; edges</span></li>
+    <li data-stage="4"><i></i><span>Turf</span></li>
+    <li data-stage="5"><i></i><span>Planting</span></li>
+    <li data-stage="6"><i></i><span>Handover</span></li>
+  </ol>
+</aside>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow reveal">Werribee · Wyndham · Geelong</p>
+    <h1 class="reveal">Quality landscaping<br>and concreting<span class="dot">.</span></h1>
+    <p class="lede reveal">We build backyards the whole street notices — slabs poured dead level, walls that sit straight in twenty years, turf you can walk on the same afternoon. One crew, start to finish, no sub-contract merry-go-round.</p>
+    <div class="hero-cta reveal">
+      <a href="#quote" class="btn btn-primary btn-lg">Get a free quote</a>
+      <a data-tel href="tel:+61416720401" class="btn btn-outline btn-lg">Call <span data-phone>0416 720 401</span></a>
+    </div>
+    <ul class="trust reveal">
+      <li>Free on-site quotes</li>
+      <li>Fully insured</li>
+      <li>Fixed written pricing</li>
+      <li>Rubbish taken with us</li>
+    </ul>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <span>Scroll — watch the yard get built</span>
+    <svg viewBox="0 0 24 24"><path d="M12 4v14m0 0-5-5m5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- ============================ SERVICES ============================ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">What we do</p>
+      <h2>Two trades, one crew, no finger-pointing</h2>
+      <p class="sec-sub">Most jobs need dirt moved, concrete poured and something green put back. Doing the lot ourselves means the levels line up, the drainage works and nobody's waiting three weeks for the next bloke to show.</p>
+    </header>
+
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-ico" data-ico="slab"></div>
+        <h3>Concreting</h3>
+        <p>Driveways, sheds, paths, crossovers and alfresco slabs. Reinforced, vibrated and screeded properly, with expansion joints where they belong so it doesn't map-crack in its first summer.</p>
+        <ul class="tags"><li>Exposed aggregate</li><li>Plain &amp; coloured</li><li>Broom finish</li><li>Honed</li></ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-ico" data-ico="turf"></div>
+        <h3>Turf &amp; lawns</h3>
+        <p>Old lawn out, base graded and levelled, quality Sir Walter or Kikuyu rolled fresh off the truck. We prep the soil first — that's the bit people skip and regret by February.</p>
+        <ul class="tags"><li>Instant turf</li><li>Soil prep</li><li>Levelling</li><li>Synthetic grass</li></ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-ico" data-ico="wall"></div>
+        <h3>Retaining walls</h3>
+        <p>Treated pine sleeper, concrete sleeper and besser block walls, footed and ag-drained so water goes where you want it. Straight, level and built to hold the ground back for good.</p>
+        <ul class="tags"><li>Sleeper walls</li><li>Garden edging</li><li>Ag drainage</li><li>Steps</li></ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-ico" data-ico="paver"></div>
+        <h3>Paving &amp; pathways</h3>
+        <p>Bluestone, travertine, porcelain and standard pavers on a compacted base — laid to fall so the water runs off, not into the back door. Cut lines kept tight and tidy.</p>
+        <ul class="tags"><li>Bluestone</li><li>Travertine</li><li>Stepping stones</li><li>Pool surrounds</li></ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-ico" data-ico="exca"></div>
+        <h3>Excavation &amp; site prep</h3>
+        <p>Bobcat and mini-ex work, cut and fill, driveway prep, trenching and spoil removal. If it's a bare block or a jungle, we'll get it to a clean, level starting point.</p>
+        <ul class="tags"><li>Bobcat hire</li><li>Cut &amp; fill</li><li>Trenching</li><li>Site clean-up</li></ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-ico" data-ico="garden"></div>
+        <h3>Garden design &amp; planting</h3>
+        <p>Beds shaped, soil conditioned, natives and hardy exotics chosen for west-of-Melbourne wind and clay. Mulched deep so you're not weeding every second weekend.</p>
+        <ul class="tags"><li>Native gardens</li><li>Mulching</li><li>Screening hedges</li><li>Feature trees</li></ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-ico" data-ico="deck"></div>
+        <h3>Decking &amp; structures</h3>
+        <p>Merbau and composite decks, planter boxes, screens and fence lines. Built square, fixed properly and finished so it still looks sharp after a few Werribee summers.</p>
+        <ul class="tags"><li>Timber decks</li><li>Composite</li><li>Privacy screens</li><li>Planter boxes</li></ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-ico" data-ico="water"></div>
+        <h3>Irrigation &amp; drainage</h3>
+        <p>Pop-up sprinkler systems, drip lines to garden beds, ag-drains and surface pits. Set on a timer and connected up so the yard looks after itself while you're at work.</p>
+        <ul class="tags"><li>Pop-up systems</li><li>Drip lines</li><li>Ag drains</li><li>Stormwater pits</li></ul>
+      </article>
+    </div>
+
+    <p class="note reveal">Not on the list? Ask anyway — full backyard makeovers are what we do most weeks, and they're usually all of the above at once.</p>
+  </div>
+</section>
+
+<!-- ============================ STATS ============================ -->
+<section class="section section-tight" id="stats">
+  <div class="wrap">
+    <!-- PLACEHOLDER NUMBERS: set these to the real figures before going live -->
+    <div class="stats reveal">
+      <div class="stat"><strong data-count="12">12</strong><span>Years on the tools</span></div>
+      <div class="stat"><strong data-count="450" data-suffix="+">450+</strong><span>Yards transformed</span></div>
+      <div class="stat"><strong data-count="100" data-suffix="%">100%</strong><span>Rubbish removed</span></div>
+      <div class="stat"><strong data-count="7" data-suffix=" day">7 day</strong><span>Quote turnaround</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROCESS ============================ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2>The same seven steps, every job</h2>
+      <p class="sec-sub">Scroll and the background builds a yard in the same order we do. No surprises, no "while we're here" invoices at the end.</p>
+    </header>
+
+    <ol class="steps">
+      <li class="step reveal" data-step="0">
+        <span class="step-n">01</span>
+        <h3>Site walk &amp; free quote</h3>
+        <p>We come out, walk the block, take levels and listen to what you actually want. You get a written fixed price with the inclusions spelled out — usually inside a week.</p>
+      </li>
+      <li class="step reveal" data-step="1">
+        <span class="step-n">02</span>
+        <h3>Excavation &amp; prep</h3>
+        <p>Old concrete, dead lawn and rubbish out. Bobcat in, levels cut, base compacted. Every job lives or dies on what happens in this step.</p>
+      </li>
+      <li class="step reveal" data-step="2">
+        <span class="step-n">03</span>
+        <h3>Formwork &amp; pour</h3>
+        <p>Boxing set to fall, mesh and bar chairs in, then the pour. Screeded, floated and finished the way you picked — broom, honed or exposed aggregate.</p>
+      </li>
+      <li class="step reveal" data-step="3">
+        <span class="step-n">04</span>
+        <h3>Walls, edges &amp; drainage</h3>
+        <p>Retaining walls footed and backfilled, ag-drain laid, garden edging run dead straight. This is where a yard stops looking like a DIY job.</p>
+      </li>
+      <li class="step reveal" data-step="4">
+        <span class="step-n">05</span>
+        <h3>Turf laid</h3>
+        <p>Topsoil spread and screeded, turf rolled tight with staggered joints, then rolled and watered in. Walk on it that evening, mow it in a fortnight.</p>
+      </li>
+      <li class="step reveal" data-step="5">
+        <span class="step-n">06</span>
+        <h3>Planting &amp; mulch</h3>
+        <p>Beds dug, plants set out and stepped back on before anything goes in the ground. Mulched 75mm deep so it holds moisture through summer.</p>
+      </li>
+      <li class="step reveal" data-step="6">
+        <span class="step-n">07</span>
+        <h3>Clean-up &amp; handover</h3>
+        <p>Every offcut, bag and barrow load goes on our trailer. We walk you through the irrigation timer, the watering-in schedule and how to keep it looking like this.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ RECENT WORK ============================ -->
+<section class="section" id="work">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Recent work</p>
+      <h2>Straight off the trailer</h2>
+      <p class="sec-sub">A few from around Wyndham and down the highway.</p>
+    </header>
+
+    <!-- ==================================================================
+         PHOTOS: drop your Instagram shots into public/img/ named
+         work-01.jpg … work-06.jpg and they'll replace these placeholders
+         automatically. Landscape crops, roughly 1200×900, look best.
+         ================================================================== -->
+    <div class="gallery">
+      <figure class="shot reveal" data-shot="1"><div class="shot-img" data-src="img/work-01.jpg"></div><figcaption>Exposed aggregate driveway — Point Cook</figcaption></figure>
+      <figure class="shot reveal" data-shot="2"><div class="shot-img" data-src="img/work-02.jpg"></div><figcaption>Full backyard rebuild — Werribee</figcaption></figure>
+      <figure class="shot reveal" data-shot="3"><div class="shot-img" data-src="img/work-03.jpg"></div><figcaption>Sleeper retaining wall &amp; steps — Tarneit</figcaption></figure>
+      <figure class="shot reveal" data-shot="4"><div class="shot-img" data-src="img/work-04.jpg"></div><figcaption>Instant turf &amp; garden beds — Manor Lakes</figcaption></figure>
+      <figure class="shot reveal" data-shot="5"><div class="shot-img" data-src="img/work-05.jpg"></div><figcaption>Bluestone alfresco &amp; deck — Lara</figcaption></figure>
+      <figure class="shot reveal" data-shot="6"><div class="shot-img" data-src="img/work-06.jpg"></div><figcaption>Native front yard — Highton</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WHY US ============================ -->
+<section class="section" id="why">
+  <div class="wrap split">
+    <div class="split-a reveal">
+      <p class="eyebrow">Why us</p>
+      <h2>Local, insured, and we actually turn up</h2>
+      <p>We're based in Werribee and most of our work is within twenty minutes of it. That means we're not squeezing your job between two others on the far side of town, and if something needs a second look six months later, we're ten minutes away.</p>
+      <p>Everything is quoted as a fixed price in writing. If the ground throws up a surprise — and out here, sometimes it does — you hear about it before we do anything, not after.</p>
+    </div>
+    <ul class="split-b checks">
+      <li class="reveal"><strong>Fixed written quotes.</strong> Line by line, so you can see exactly what you're paying for.</li>
+      <li class="reveal"><strong>One crew, start to finish.</strong> The bloke who quotes it is on site while it's built.</li>
+      <li class="reveal"><strong>Fully insured.</strong> Public liability cover, certificates available on request.</li>
+      <li class="reveal"><strong>Clean site, every day.</strong> Tools stacked, offcuts binned, driveway swept before we leave.</li>
+      <li class="reveal"><strong>Council-aware.</strong> Wyndham and Geelong crossover and permit requirements handled properly.</li>
+      <li class="reveal"><strong>Workmanship backed.</strong> If something we built isn't right, we come back and fix it.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ TESTIMONIALS ============================ -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Word of mouth</p>
+      <h2>What people say</h2>
+      <!-- ==================================================================
+           PLACEHOLDER REVIEWS — these are written samples, NOT real customers.
+           Replace the quotes and names with genuine Google / Facebook reviews
+           before this site goes live, then delete the .placeholder-flag div.
+           ================================================================== -->
+      <div class="placeholder-flag reveal">
+        <strong>Placeholder content.</strong> Swap these for real Google or Facebook reviews before launch — then delete this notice in <code>index.html</code>.
+      </div>
+    </header>
+
+    <div class="quotes">
+      <blockquote class="quote reveal">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <p>Sample review text. Replace with a genuine customer review about the driveway, the turnaround time, or how tidy the site was left.</p>
+        <cite>Customer name — Suburb</cite>
+      </blockquote>
+      <blockquote class="quote reveal">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <p>Sample review text. Replace with a genuine customer review about the backyard build, the quoting process, or the finished turf.</p>
+        <cite>Customer name — Suburb</cite>
+      </blockquote>
+      <blockquote class="quote reveal">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <p>Sample review text. Replace with a genuine customer review about the retaining wall, drainage work, or communication during the job.</p>
+        <cite>Customer name — Suburb</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ AREAS ============================ -->
+<section class="section" id="areas">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Where we work</p>
+      <h2>Wyndham to Geelong, and everything on the highway between</h2>
+      <p class="sec-sub">Based in Werribee. If your suburb isn't listed, ring anyway — if it's down the Princes Freeway, chances are we're already out that way.</p>
+    </header>
+
+    <div class="area-grid reveal">
+      <div class="area-col">
+        <h3>Wyndham</h3>
+        <ul><li>Werribee</li><li>Werribee South</li><li>Hoppers Crossing</li><li>Point Cook</li><li>Tarneit</li><li>Truganina</li><li>Williams Landing</li><li>Wyndham Vale</li><li>Manor Lakes</li><li>Iramoo</li><li>Mount Cottrell</li><li>Little River</li></ul>
+      </div>
+      <div class="area-col">
+        <h3>Geelong</h3>
+        <ul><li>Lara</li><li>Corio</li><li>Norlane</li><li>Geelong CBD</li><li>Newtown</li><li>Highton</li><li>Waurn Ponds</li><li>Armstrong Creek</li><li>Grovedale</li><li>Leopold</li><li>Ocean Grove</li><li>Torquay</li></ul>
+      </div>
+      <div class="area-col">
+        <h3>Also out to</h3>
+        <ul><li>Altona Meadows</li><li>Laverton</li><li>Sanctuary Lakes</li><li>Melton South</li><li>Rockbank</li><li>Bacchus Marsh</li><li>Anakie</li><li>Bannockburn</li><li>Drysdale</li><li>Clifton Springs</li><li>Barwon Heads</li><li>Winchelsea</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section" id="faq">
+  <div class="wrap narrow">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Questions</p>
+      <h2>The ones we get asked every week</h2>
+    </header>
+
+    <div class="faq">
+      <details class="reveal"><summary>Is the quote actually free?</summary><div><p>Yes. We come out, measure up and give you a written fixed price. No call-out fee, no obligation, and we don't do the "sign today or the price goes up" routine.</p></div></details>
+      <details class="reveal"><summary>How long does a typical backyard take?</summary><div><p>A standard new-estate backyard — slab, wall, turf and beds — is usually five to eight working days on site. Concrete needs curing time in the middle of that, so allow a fortnight end to end. Weather out here can add a day or two.</p></div></details>
+      <details class="reveal"><summary>When can I walk on new concrete and new turf?</summary><div><p>Turf, the same evening — light foot traffic only for the first fortnight while it roots in. Concrete, 24–48 hours for walking and seven days before you park a car on it. Full strength is 28 days, and we'll leave you a curing rundown.</p></div></details>
+      <details class="reveal"><summary>Do you handle permits and crossovers?</summary><div><p>We work with both Wyndham City and Geelong council requirements regularly, including vehicle crossovers. We'll tell you upfront what's needed for your job and what it costs — it's on the quote, not a surprise later.</p></div></details>
+      <details class="reveal"><summary>What about the clay out here?</summary><div><p>Most of Wyndham is reactive clay, which is exactly why base prep and drainage matter more here than they do closer to town. We compact properly, use ag-drain behind walls and set falls away from the house. It's not glamorous work but it's the reason things stay put.</p></div></details>
+      <details class="reveal"><summary>Do you take the rubbish away?</summary><div><p>Always. Spoil, old concrete, offcuts, empty bags — it leaves on our trailer. You shouldn't have to book a skip to finish someone else's job.</p></div></details>
+      <details class="reveal"><summary>Do you do small jobs?</summary><div><p>Yep. A path, a few square metres of turf, one wall, a garden clean-up — happy to price it. Small jobs are how most of our big ones started.</p></div></details>
+      <details class="reveal"><summary>How do I pay?</summary><div><p>Deposit to lock in the date, progress payment at a milestone on larger builds, balance on completion once you've walked it with us and you're happy. Bank transfer or card.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ QUOTE FORM ============================ -->
+<section class="section" id="quote">
+  <div class="wrap">
+    <div class="quote-panel">
+      <div class="quote-intro reveal">
+        <p class="eyebrow">Free quote</p>
+        <h2>Tell us about the job</h2>
+        <p>Fill this in and we'll come out and price it — no charge, no obligation. If you'd rather just talk it through, ring or text and you'll get a human.</p>
+
+        <div class="contact-lines">
+          <a class="contact-line" data-tel href="tel:+61416720401">
+            <span class="cl-ico">📱</span>
+            <span><small>Call or text</small><strong data-phone>0416 720 401</strong></span>
+          </a>
+          <a class="contact-line" data-mailto href="mailto:quotes@example.com.au">
+            <span class="cl-ico">✉️</span>
+            <span><small>Email</small><strong data-email>quotes@example.com.au</strong></span>
+          </a>
+          <div class="contact-line static">
+            <span class="cl-ico">🕗</span>
+            <span><small>On the tools</small><strong>Mon–Fri 7am–5pm · Sat 8am–1pm</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <form class="quote-form reveal" id="quoteForm" novalidate>
+        <div class="row">
+          <label class="field">
+            <span>Your name <b aria-hidden="true">*</b></span>
+            <input type="text" name="name" autocomplete="name" required placeholder="Jane Citizen">
+            <em class="err" data-err></em>
+          </label>
+          <label class="field">
+            <span>Mobile <b aria-hidden="true">*</b></span>
+            <input type="tel" name="phone" autocomplete="tel" required placeholder="04XX XXX XXX" inputmode="tel">
+            <em class="err" data-err></em>
+          </label>
+        </div>
+
+        <div class="row">
+          <label class="field">
+            <span>Email <b aria-hidden="true">*</b></span>
+            <input type="email" name="email" autocomplete="email" required placeholder="you@email.com">
+            <em class="err" data-err></em>
+          </label>
+          <label class="field">
+            <span>Suburb <b aria-hidden="true">*</b></span>
+            <input type="text" name="suburb" autocomplete="address-level2" required placeholder="Werribee">
+            <em class="err" data-err></em>
+          </label>
+        </div>
+
+        <fieldset class="field">
+          <legend>What do you need? <b aria-hidden="true">*</b></legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="service" value="Concreting"><span>Concreting</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Turf / lawn"><span>Turf / lawn</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Retaining wall"><span>Retaining wall</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Paving"><span>Paving</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Excavation"><span>Excavation</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Planting / garden"><span>Planting</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Decking"><span>Decking</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Irrigation / drainage"><span>Irrigation</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Full backyard makeover"><span>Full makeover</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+          <em class="err" data-err></em>
+        </fieldset>
+
+        <div class="row">
+          <label class="field">
+            <span>Rough size</span>
+            <select name="size">
+              <option value="">Not sure</option>
+              <option>Under 20m² — small path or patch</option>
+              <option>20–50m² — courtyard or driveway</option>
+              <option>50–150m² — standard backyard</option>
+              <option>150m²+ — full block or acreage</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>When suits you?</span>
+            <select name="timing">
+              <option value="">Flexible</option>
+              <option>ASAP — it's urgent</option>
+              <option>Next few weeks</option>
+              <option>1–3 months out</option>
+              <option>Just pricing it up for now</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Anything else we should know?</span>
+          <textarea name="details" rows="4" placeholder="Access down the side, sloping block, existing concrete to come out, dog, whatever's relevant…"></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg">Send my quote request</button>
+          <p class="form-fine">Opens your email app with everything filled in — just hit send. Prefer not to? Use the copy button that appears, or text us on <a data-tel href="tel:+61416720401"><span data-phone>0416 720 401</span></a>.</p>
+        </div>
+
+        <div class="sent" id="sentBox" hidden role="status">
+          <h3>Your email is ready to go ✅</h3>
+          <p>We've opened your email app with the details filled in — <strong>hit send and it's on its way.</strong> Nothing happened? Copy the details below and send them to <a data-mailto href="mailto:quotes@example.com.au"><span data-email>quotes@example.com.au</span></a>, or just text us.</p>
+          <div class="sent-actions">
+            <button type="button" class="btn btn-outline" id="copyBtn">Copy the details</button>
+            <a class="btn btn-outline" id="smsBtn" href="#">Send as a text instead</a>
+            <button type="button" class="btn btn-ghost" id="resetBtn">Start again</button>
+          </div>
+          <pre class="sent-pre" id="sentPre"></pre>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <strong>Wyndham Landscapes &amp; Concreting</strong>
+      <p>Quality landscaping and concreting to the Wyndham and Geelong area. Based in Werribee, Victoria.</p>
+      <p class="abn">ABN 00 000 000 000 <span class="ph">← add real ABN</span></p>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul><li><a href="#services">Concreting</a></li><li><a href="#services">Turf &amp; lawns</a></li><li><a href="#services">Retaining walls</a></li><li><a href="#services">Paving</a></li><li><a href="#services">Excavation</a></li><li><a href="#services">Decking</a></li></ul>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <ul><li><a href="#process">How it works</a></li><li><a href="#work">Recent work</a></li><li><a href="#areas">Service areas</a></li><li><a href="#faq">FAQ</a></li><li><a href="#quote">Free quote</a></li></ul>
+    </div>
+    <div class="foot-col">
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a data-tel href="tel:+61416720401"><span data-phone>0416 720 401</span></a></li>
+        <li><a data-mailto href="mailto:quotes@example.com.au"><span data-email>quotes@example.com.au</span></a></li>
+        <li><a href="#" data-insta rel="noopener">Instagram</a></li>
+        <li><a href="#" data-fb rel="noopener">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <p>© <span id="year">2026</span> Wyndham Landscapes &amp; Concreting. Werribee VIC 3030.</p>
+    <p>Servicing Wyndham, Geelong &amp; Melbourne's west.</p>
+  </div>
+</footer>
+
+<!-- sticky call bar, phones only -->
+<div class="call-bar" aria-hidden="false">
+  <a data-tel href="tel:+61416720401" class="btn btn-primary">Call <span data-phone>0416 720 401</span></a>
+  <a href="#quote" class="btn btn-outline">Free quote</a>
+</div>
+
+<script src="scene.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

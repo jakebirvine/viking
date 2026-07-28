@@ -1,0 +1,17 @@
+# Cloudflare Pages redirects.
+#
+# Pages serves 404.html automatically for unknown paths, so nothing here is
+# required. What IS worth turning on: forcing one canonical hostname, so Google
+# doesn't index the site twice and split its ranking.
+#
+# After you've added BOTH the apex and www domains to the Pages project
+# (Custom domains tab), uncomment ONE of the pairs below and redeploy.
+
+# --- Prefer www ---------------------------------------------------------
+# https://example.com.au/*  https://www.example.com.au/:splat  301!
+
+# --- Prefer the bare domain ---------------------------------------------
+# https://www.example.com.au/*  https://example.com.au/:splat  301!
+
+# The trailing ! forces the redirect even when a matching file exists.
+# Rules are evaluated top to bottom; first match wins. 100 rules max.

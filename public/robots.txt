@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# PLACEHOLDER: swap example.com.au for the real domain once it's connected.
+Sitemap: https://www.example.com.au/sitemap.xml
