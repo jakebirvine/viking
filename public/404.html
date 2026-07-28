@@ -6,25 +6,44 @@
 <meta name="theme-color" content="#0E120C">
 <meta name="robots" content="noindex">
 <title>Page not found — Viking Landscapes</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E120C'/%3E%3Cpath d='M22 8c0 7-4.6 11.5-10.5 11.5C11.5 12.5 15.8 8 22 8z' fill='%237FB069'/%3E%3Crect x='6' y='22' width='20' height='2.4' rx='1.2' fill='%23C9CBC4'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%233E9C52'/%3E%3Cg fill='%23fff'%3E%3Cpath d='M26 59C14 52 4 34 4 8C8 30 20 44 37 51Z'/%3E%3Cpath d='M74 59C86 52 96 34 96 8C92 30 80 44 63 51Z'/%3E%3Cpath d='M50 22c-15 0-27 12-27 27v9h54v-9c0-15-12-27-27-27z'/%3E%3Crect x='19' y='55' width='62' height='11' rx='5.5'/%3E%3Cpath d='M44 65h12v17a6 6 0 0 1-12 0z'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
   .oops{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 0}
-  .oops h1{font-size:clamp(3.4rem,12vw,7rem);margin-bottom:10px}
+  .oops h1{font-size:clamp(2.6rem,9vw,5rem);margin-bottom:10px}
   .oops .lede{margin-inline:auto}
   .oops .hero-cta{justify-content:center}
+  /* smaller lockup here than on the home page — it's a signpost, not a hero */
+  .oops .brand-lockup{margin-bottom:34px}
+  .oops .lock-word{font-size:clamp(2.4rem,6vw,3.6rem)}
+  .oops .lock-helm{width:clamp(38px,5vw,54px)}
 </style>
 </head>
 <body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="vk-helm" viewBox="0 0 100 100">
+    <path d="M26 59C14 52 4 34 4 8C8 30 20 44 37 51Z"/>
+    <path d="M74 59C86 52 96 34 96 8C92 30 80 44 63 51Z"/>
+    <path d="M50 22c-15 0-27 12-27 27v9h54v-9c0-15-12-27-27-27z"/>
+    <rect x="19" y="55" width="62" height="11" rx="5.5"/>
+    <path d="M44 65h12v17a6 6 0 0 1-12 0z"/>
+  </symbol>
+</svg>
 
 <canvas id="scene" aria-hidden="true"></canvas>
 <div class="scene-scrim" aria-hidden="true"></div>
 
 <main class="oops">
   <div class="wrap">
+    <div class="brand-lockup" role="img" aria-label="Viking Landscapes">
+      <svg class="lock-helm" aria-hidden="true"><use href="#vk-helm"/></svg>
+      <span class="lock-word">Viking</span>
+      <span class="lock-rule"><i></i><span>Landscaping &amp; Concreting</span><i></i></span>
+    </div>
     <p class="eyebrow">Error 404</p>
     <h1>Nothing here<span class="dot">.</span></h1>
     <p class="lede">That page has been dug up and carted off. Head back to the front and we'll get you sorted — or just ring us, it's quicker.</p>

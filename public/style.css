@@ -12,6 +12,11 @@
   --fern-2:#A3CB8A;
   --concrete:#C9CBC4;
   --limestone:#EFEDE6;
+
+  /* sampled from the company logo */
+  --viking:#3E9C52;
+  --viking-dark:#2C7A3C;
+  --viking-lift:#5BBE70;
   --brass:#E0A03C;
   --brass-2:#F2BC63;
   --clay:#B4643C;
@@ -144,11 +149,25 @@ p:last-child{margin-bottom:0}
 .site-head.hide{transform:translateY(-100%);transition:transform .35s ease,background .3s}
 .head-inner{display:flex;align-items:center;gap:22px;height:var(--head-h)}
 
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto}
-.brand-mark{width:38px;height:38px;flex:none;border-radius:10px}
-.brand-text{display:flex;flex-direction:column;line-height:1.1}
-.brand-text strong{font-family:var(--display);font-weight:400;font-size:1.02rem;letter-spacing:-.02em}
-.brand-text small{font-size:.7rem;color:var(--ink-dim);letter-spacing:.05em}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.brand-badge{
+  width:48px;height:48px;flex:none;border-radius:13px;
+  display:grid;place-items:center;color:#fff;
+  background:linear-gradient(158deg,var(--viking-lift),var(--viking) 45%,var(--viking-dark));
+  box-shadow:0 8px 20px -10px rgba(62,156,82,.95), inset 0 1px 0 rgba(255,255,255,.22);
+  transition:transform .25s cubic-bezier(.2,.8,.3,1),box-shadow .25s;
+}
+.brand:hover .brand-badge{transform:translateY(-2px) rotate(-3deg);box-shadow:0 12px 26px -10px rgba(62,156,82,1)}
+.brand-badge svg{width:31px;height:31px;fill:currentColor}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-word{
+  font-family:var(--display);font-weight:400;font-size:1.42rem;
+  text-transform:uppercase;letter-spacing:.06em;
+}
+.brand-sub{
+  font-family:var(--cond);font-weight:600;font-size:.66rem;margin-top:5px;
+  text-transform:uppercase;letter-spacing:.15em;color:var(--ink-dim);white-space:nowrap;
+}
 
 .nav{display:flex;align-items:center;gap:4px}
 .nav a{
@@ -192,6 +211,41 @@ p:last-child{margin-bottom:0}
 .stage-rail li.on span{color:var(--fern-2)}
 .stage-rail li.done i{background:rgba(127,176,105,.45)}
 
+/* ---------- brand lockup ----------
+   Used only by 404.html now, which has no site header of its own and so needs
+   its own branding. The home page carries the brand in the header instead. */
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+.brand-lockup{
+  display:inline-flex;flex-direction:column;align-items:center;
+  color:var(--limestone);margin-bottom:clamp(22px,3.4vw,34px);
+  filter:drop-shadow(0 10px 30px rgba(0,0,0,.7));
+}
+.lock-helm{
+  width:clamp(40px,4.9vw,62px);aspect-ratio:1;fill:currentColor;
+  margin-bottom:clamp(5px,.7vw,10px);
+}
+.lock-word{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(2.7rem,6.2vw,4.8rem);line-height:.84;
+  text-transform:uppercase;letter-spacing:.035em;
+}
+.lock-rule{
+  display:flex;align-items:center;gap:clamp(9px,1.3vw,15px);
+  /* stretch to the lockup width (set by the wordmark) but never let the rules
+     collapse — on narrow screens the descriptor is nearly as wide as VIKING */
+  align-self:stretch;margin-top:clamp(9px,1.3vw,15px);
+}
+.lock-rule i{flex:1 0 22px;height:2px;background:currentColor;opacity:.5;border-radius:2px}
+
+.lock-rule > span{
+  font-family:var(--cond);font-weight:700;white-space:nowrap;
+  /* deliberately small: "Landscaping & Concreting" is 24 characters against
+     the 6 of VIKING, so it has to sit well under the wordmark's width or the
+     flanking rules have no room left to draw */
+  font-size:clamp(.5rem,.78vw,.68rem);
+  text-transform:uppercase;letter-spacing:.2em;
+}
 /* ---------- hero ---------- */
 .hero{
   min-height:100svh;display:flex;flex-direction:column;justify-content:center;
@@ -213,15 +267,6 @@ p:last-child{margin-bottom:0}
   background-image:linear-gradient(transparent,transparent);
   box-shadow:inset 0 0 0 2px rgba(14,18,12,.6);
 }
-
-.scroll-cue{
-  position:absolute;left:50%;bottom:30px;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  font-family:var(--cond);font-size:.72rem;font-weight:600;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--ink-dim);text-align:center;
-}
-.scroll-cue svg{width:20px;height:20px;animation:bob 2.4s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:1}}
 
 /* ---------- sections ---------- */
 .section{padding:clamp(72px,10vw,132px) 0}
@@ -301,22 +346,21 @@ p:last-child{margin-bottom:0}
 .shot{margin:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line-soft);background:var(--panel);backdrop-filter:blur(10px);box-shadow:var(--shadow);transition:transform .3s,border-color .3s}
 .shot:hover{transform:translateY(-4px);border-color:rgba(127,176,105,.35)}
 .shot-img{
-  aspect-ratio:4/3;position:relative;
-  background-size:cover;background-position:center;
-  display:grid;place-items:center;
+  display:block;width:100%;height:auto;
+  aspect-ratio:1/1;object-fit:cover;
+  background:rgba(241,243,236,.04);
 }
-/* placeholder look until real photos are dropped into /img */
-.shot-img:not(.has-img){
-  background-image:
+/* dashed placeholder shown only when the photo file isn't there yet */
+.shot-fallback{
+  display:none;aspect-ratio:1/1;place-items:center;text-align:center;padding:20px;
+  background:
     linear-gradient(180deg,rgba(127,176,105,.10),rgba(0,0,0,.35)),
     repeating-linear-gradient(45deg,rgba(241,243,236,.035) 0 12px,transparent 12px 24px);
-}
-.shot-img:not(.has-img)::after{
-  content:"Add photo → " attr(data-src);
   font-family:var(--cond);font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-dim);border:1px dashed var(--line);padding:9px 14px;border-radius:999px;
-  background:rgba(14,18,12,.55);
+  color:var(--ink-dim);
 }
+.shot.missing .shot-img{display:none}
+.shot.missing .shot-fallback{display:grid}
 .shot figcaption{padding:14px 18px;font-family:var(--cond);font-weight:600;font-size:.88rem;color:var(--ink-soft);border-top:1px solid var(--line-soft)}
 
 /* ---------- split / why ---------- */
@@ -341,12 +385,6 @@ p:last-child{margin-bottom:0}
 }
 
 /* ---------- reviews ---------- */
-.placeholder-flag{
-  margin-top:22px;padding:13px 17px;border-radius:12px;font-size:.86rem;
-  background:rgba(224,160,60,.10);border:1px dashed rgba(224,160,60,.5);color:#F0CE94;
-}
-.placeholder-flag code{font-size:.85em;background:rgba(0,0,0,.35);padding:1px 6px;border-radius:5px}
-
 .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
 .quote{
   margin:0;padding:28px 26px;border-radius:var(--r-lg);
@@ -364,7 +402,8 @@ p:last-child{margin-bottom:0}
   border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);
 }
 .area-col{background:var(--panel-solid);backdrop-filter:blur(14px);padding:28px 26px}
-.area-col h3{color:var(--fern-2);margin-bottom:16px;font-size:1rem;text-transform:uppercase;letter-spacing:.12em}
+.area-col h3{color:var(--fern-2);margin-bottom:6px;font-size:1rem;text-transform:uppercase;letter-spacing:.12em}
+.area-note{font-size:.78rem;color:var(--ink-dim);margin-bottom:14px;font-style:italic}
 .area-col ul{list-style:none;margin:0;padding:0;columns:2;column-gap:18px}
 .area-col li{font-size:.9rem;color:var(--ink-soft);padding:3px 0;break-inside:avoid}
 
@@ -477,10 +516,11 @@ input:focus,select:focus,textarea:focus{
 /* ---------- footer ---------- */
 .site-foot{background:rgba(8,10,7,.94);backdrop-filter:blur(16px);border-top:1px solid var(--line-soft);padding:64px 0 0;margin-top:40px}
 .foot-inner{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px}
-.foot-brand strong{display:block;font-family:var(--display);font-size:1.1rem;margin-bottom:12px}
+.foot-lockup{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.foot-helm{width:30px;height:30px;flex:none;fill:var(--viking-lift)}
+.foot-brand strong{font-family:var(--display);font-weight:400;font-size:1.1rem;text-transform:uppercase;letter-spacing:.03em}
 .foot-brand p{color:var(--ink-dim);font-size:.9rem;max-width:38ch}
-.abn{font-size:.8rem !important}
-.ph{color:var(--brass);opacity:.75}
+.abn{font-size:.8rem !important;letter-spacing:.04em}
 .foot-col h4{color:var(--fern-2);margin-bottom:16px}
 .foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
 .foot-col a{color:var(--ink-dim);text-decoration:none;font-size:.9rem;transition:color .2s}
@@ -501,10 +541,18 @@ input:focus,select:focus,textarea:focus{
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
-  .scroll-cue svg{animation:none}
 }
 
 /* ---------- responsive ---------- */
+/* Short laptop screens (1366×768, 1280×720) — keeps the quote/call buttons
+   above the fold, which is the one thing on this page that must never slip. */
+@media (min-width:761px) and (max-height:800px){
+  .hero{padding-top:calc(var(--head-h) + 24px);padding-bottom:100px}
+  h1{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+  .lede{margin-bottom:26px;font-size:1.02rem}
+  .hero-cta{margin-bottom:28px}
+}
+
 @media (max-width:1200px){ .stage-rail{display:none} }
 
 @media (max-width:900px){
@@ -530,11 +578,11 @@ input:focus,select:focus,textarea:focus{
   .nav a{padding:14px 12px;font-size:1.02rem;border-radius:10px}
   .nav .nav-quote{display:flex;margin-top:10px;justify-content:center;background:var(--brass);color:#1B1304;border-color:var(--brass)}
   .hero{padding-bottom:150px;min-height:92svh}
+  .brand-lockup{margin-bottom:20px}
   .hero-cta{flex-direction:column;align-items:stretch}
   .hero-cta .btn{width:100%}
   .call-bar{display:flex}
   body{padding-bottom:76px}
-  .scroll-cue{bottom:88px}
   .row{grid-template-columns:1fr;gap:0}
   .area-col ul{columns:2}
   .foot-inner{grid-template-columns:1fr}
@@ -543,8 +591,16 @@ input:focus,select:focus,textarea:focus{
 }
 
 @media (max-width:420px){
-  .brand-text small{display:none}
+  .brand-badge{width:42px;height:42px}
+  .brand-badge svg{width:27px;height:27px}
+  .brand-word{font-size:1.2rem}
+  .brand-sub{font-size:.57rem;letter-spacing:.12em}
+  .lock-rule > span{letter-spacing:.15em}
   .area-col ul{columns:1}
+}
+/* only drop the header descriptor when it genuinely can't fit */
+@media (max-width:359px){
+  .brand-sub{display:none}
 }
 
 /* ---------- print ---------- */

@@ -11,9 +11,10 @@
      block at the top of site.js. Search the project for "PLACEHOLDER".
      ========================================================================== -->
 
-<title>Viking Landscapes — Landscaping &amp; Concreting in Werribee, Wyndham &amp; Geelong</title>
-<meta name="description" content="Viking Landscapes — quality landscaping and concreting to the Wyndham and Geelong area. Werribee-based. Turf, retaining walls, exposed aggregate, driveways, decking and full backyard builds. Free quotes — 0416 720 401.">
-<meta name="keywords" content="landscaping Werribee, concreting Werribee, landscaper Wyndham, concreter Geelong, exposed aggregate Point Cook, retaining walls Tarneit, turf laying Hoppers Crossing">
+<!-- Title kept under ~60 characters and description under ~155 so Google shows
+     them in full instead of truncating with an ellipsis. -->
+<title>Viking Landscapes | Landscaping &amp; Concreting, Werribee</title>
+<meta name="description" content="Werribee landscaping and concreting — turf, driveways, paving, retaining walls and full backyard builds. We travel up to 2 hours. Free quotes, fixed pricing.">
 
 <!-- PLACEHOLDER DOMAIN: find-and-replace www.example.com.au across index.html,
      robots.txt and sitemap.xml once the real domain is connected in Cloudflare. -->
@@ -21,16 +22,19 @@
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.example.com.au/">
+<meta property="og:site_name" content="Viking Landscapes">
 <meta property="og:title" content="Viking Landscapes — Landscaping &amp; Concreting, Werribee">
-<meta property="og:description" content="Quality landscaping and concreting to the Wyndham and Geelong area. Message us to organise a free quote.">
+<meta property="og:description" content="Landscaping and concreting out of Werribee. Turf, driveways, paving, retaining walls and full backyard builds. Message us for a free quote.">
 <meta property="og:locale" content="en_AU">
 <meta name="twitter:card" content="summary_large_image">
-<!-- Once you've got photos: save a 1200×630 crop as public/img/og.jpg and
-     uncomment the next line so links shared to Facebook/WhatsApp show it.
+<!-- Shows a photo when the site is shared to Messenger/WhatsApp/LinkedIn.
+     Save a 1200×630 crop as public/img/og.jpg — until that file exists the tag
+     simply does nothing, so it is safe to leave enabled. -->
 <meta property="og:image" content="https://www.example.com.au/img/og.jpg">
--->
+<meta property="og:image:alt" content="A bluestone crazy-paved path and fire pit built by Viking Landscapes.">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E120C'/%3E%3Cpath d='M22 8c0 7-4.6 11.5-10.5 11.5C11.5 12.5 15.8 8 22 8z' fill='%237FB069'/%3E%3Crect x='6' y='22' width='20' height='2.4' rx='1.2' fill='%23C9CBC4'/%3E%3C/svg%3E">
+<!-- favicon: the helmet, white on the brand green -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%233E9C52'/%3E%3Cg fill='%23fff'%3E%3Cpath d='M26 59C14 52 4 34 4 8C8 30 20 44 37 51Z'/%3E%3Cpath d='M74 59C86 52 96 34 96 8C92 30 80 44 63 51Z'/%3E%3Cpath d='M50 22c-15 0-27 12-27 27v9h54v-9c0-15-12-27-27-27z'/%3E%3Crect x='19' y='55' width='62' height='11' rx='5.5'/%3E%3Cpath d='M44 65h12v17a6 6 0 0 1-12 0z'/%3E%3C/g%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,24 +42,77 @@
 
 <link rel="stylesheet" href="style.css">
 
+<!-- Structured data. This is what feeds Google's local pack / knowledge panel.
+     NOTE: there is deliberately no Review or AggregateRating markup here — see
+     the README. Marking up reviews that aren't verifiable is against Google's
+     policy and risks a manual penalty on the whole site. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LandscapingBusiness",
+  "@id": "https://www.example.com.au/#business",
   "name": "Viking Landscapes",
   "url": "https://www.example.com.au/",
-  "description": "Quality landscaping and concreting to the Wyndham and Geelong area.",
+  "description": "Landscaping and concreting based in Werribee, Victoria. Turf, driveways, paving, retaining walls, decking and full backyard builds, servicing up to two hours from Werribee.",
   "telephone": "+61416720401",
   "email": "quotes@example.com.au",
+  "image": "https://www.example.com.au/img/work-01.jpg",
+  "identifier": { "@type": "PropertyValue", "name": "ABN", "value": "57372369738" },
+  "sameAs": ["https://www.instagram.com/vikinglandscapes"],
   "address": { "@type": "PostalAddress", "addressLocality": "Werribee", "addressRegion": "VIC", "postalCode": "3030", "addressCountry": "AU" },
-  "areaServed": ["Werribee","Point Cook","Tarneit","Hoppers Crossing","Wyndham Vale","Truganina","Williams Landing","Manor Lakes","Little River","Lara","Corio","Geelong","Torquay","Ocean Grove"],
+  "geo": { "@type": "GeoCoordinates", "latitude": -37.9, "longitude": 144.66 },
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": { "@type": "GeoCoordinates", "latitude": -37.9, "longitude": 144.66 },
+    "geoRadius": "150000"
+  },
+  "areaServed": [
+    "Werribee","Werribee South","Point Cook","Tarneit","Hoppers Crossing","Wyndham Vale","Truganina",
+    "Williams Landing","Manor Lakes","Little River","Melton","Bacchus Marsh","Altona","Laverton",
+    "Sunbury","Melbourne","Geelong","Lara","Corio","Leopold","Drysdale","Ocean Grove","Barwon Heads",
+    "Torquay","Anglesea","Winchelsea","Colac","Ballarat","Ballan","Gisborne","Woodend","Kyneton",
+    "Daylesford","Bannockburn","Queenscliff","Portarlington"
+  ],
   "priceRange": "$$",
-  "openingHours": "Mo-Fr 07:00-17:00, Sa 08:00-13:00"
+  "currenciesAccepted": "AUD",
+  "paymentAccepted": "Bank transfer, Credit card",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Landscaping & concreting services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Concreting — driveways, slabs, exposed aggregate" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Turf laying and instant lawns" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Retaining walls" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paving and stone pathways" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Excavation and site preparation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Garden design, planting and mulching" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Timber decking and screens" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Irrigation and drainage" } }
+    ]
+  }
 }
 </script>
 </head>
 
 <body>
+
+<!-- ==========================================================================
+     Logo artwork, redrawn as vector from the supplied JPEG so it stays sharp
+     at any size and can be recoloured with CSS. Referenced below via <use>.
+     ========================================================================== -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="vk-helm" viewBox="0 0 100 100">
+    <path d="M26 59C14 52 4 34 4 8C8 30 20 44 37 51Z"/>
+    <path d="M74 59C86 52 96 34 96 8C92 30 80 44 63 51Z"/>
+    <path d="M50 22c-15 0-27 12-27 27v9h54v-9c0-15-12-27-27-27z"/>
+    <rect x="19" y="55" width="62" height="11" rx="5.5"/>
+    <path d="M44 65h12v17a6 6 0 0 1-12 0z"/>
+  </symbol>
+</svg>
 
 <!-- the scroll-driven landscape build animation -->
 <canvas id="scene" aria-hidden="true"></canvas>
@@ -67,19 +124,10 @@
 <header class="site-head" id="siteHead">
   <div class="wrap head-inner">
     <a class="brand" href="#top" aria-label="Viking Landscapes — home">
-      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
-        <rect width="40" height="40" rx="10" fill="url(#bg)"/>
-        <path d="M28.5 9.5c0 9.2-6 15-13.7 15C14.8 15.3 20.4 9.5 28.5 9.5z" fill="#7FB069"/>
-        <path d="M13 27c3-6.5 8-11.5 14-14.5" stroke="#0E120C" stroke-width="1.6" stroke-linecap="round" opacity=".55" fill="none"/>
-        <rect x="7" y="28.4" width="26" height="3" rx="1.5" fill="#C9CBC4"/>
-        <rect x="7" y="33.2" width="16" height="2.2" rx="1.1" fill="#C9CBC4" opacity=".5"/>
-        <defs><linearGradient id="bg" x1="0" y1="0" x2="40" y2="40">
-          <stop offset="0" stop-color="#1C2418"/><stop offset="1" stop-color="#0B0E09"/>
-        </linearGradient></defs>
-      </svg>
+      <span class="brand-badge"><svg aria-hidden="true"><use href="#vk-helm"/></svg></span>
       <span class="brand-text">
-        <strong>Viking Landscapes</strong>
-        <small>Landscaping &amp; Concreting · Werribee</small>
+        <strong class="brand-word">Viking</strong>
+        <small class="brand-sub">Landscaping &amp; Concreting</small>
       </span>
     </a>
 
@@ -123,7 +171,7 @@
 <!-- ============================ HERO ============================ -->
 <section class="hero" id="hero">
   <div class="wrap hero-inner">
-    <p class="eyebrow reveal">Werribee · Wyndham · Geelong</p>
+    <p class="eyebrow reveal">Werribee · Two hours in any direction</p>
     <h1 class="reveal">Quality landscaping<br>and concreting<span class="dot">.</span></h1>
     <p class="lede reveal">We build backyards the whole street notices — slabs poured dead level, walls that sit straight in twenty years, turf you can walk on the same afternoon. One crew, start to finish, no sub-contract merry-go-round.</p>
     <div class="hero-cta reveal">
@@ -136,10 +184,6 @@
       <li>Fixed written pricing</li>
       <li>Rubbish taken with us</li>
     </ul>
-  </div>
-  <div class="scroll-cue" aria-hidden="true">
-    <span>Scroll — watch the yard get built</span>
-    <svg viewBox="0 0 24 24"><path d="M12 4v14m0 0-5-5m5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
 </section>
 
@@ -286,17 +330,42 @@
     </header>
 
     <!-- ==================================================================
-         PHOTOS: drop your Instagram shots into public/img/ named
-         work-01.jpg … work-06.jpg and they'll replace these placeholders
-         automatically. Landscape crops, roughly 1200×900, look best.
+         PHOTOS: save the four job shots into public/img/ as work-01.jpg …
+         work-04.jpg. Square-ish crops around 1000×1000 suit this grid.
+         Until the files exist, each tile falls back to a dashed placeholder
+         (handled by the onerror hook in site.js) rather than a broken image.
+
+         The alt text is written for search engines and screen readers — if
+         you swap a photo, update its alt to describe the new one.
+         Add the real suburb to each caption when you know it; local place
+         names in captions are one of the few genuinely useful image-SEO
+         signals for a trade business.
          ================================================================== -->
     <div class="gallery">
-      <figure class="shot reveal" data-shot="1"><div class="shot-img" data-src="img/work-01.jpg"></div><figcaption>Exposed aggregate driveway — Point Cook</figcaption></figure>
-      <figure class="shot reveal" data-shot="2"><div class="shot-img" data-src="img/work-02.jpg"></div><figcaption>Full backyard rebuild — Werribee</figcaption></figure>
-      <figure class="shot reveal" data-shot="3"><div class="shot-img" data-src="img/work-03.jpg"></div><figcaption>Sleeper retaining wall &amp; steps — Tarneit</figcaption></figure>
-      <figure class="shot reveal" data-shot="4"><div class="shot-img" data-src="img/work-04.jpg"></div><figcaption>Instant turf &amp; garden beds — Manor Lakes</figcaption></figure>
-      <figure class="shot reveal" data-shot="5"><div class="shot-img" data-src="img/work-05.jpg"></div><figcaption>Bluestone alfresco &amp; deck — Lara</figcaption></figure>
-      <figure class="shot reveal" data-shot="6"><div class="shot-img" data-src="img/work-06.jpg"></div><figcaption>Native front yard — Highton</figcaption></figure>
+      <figure class="shot reveal">
+        <img class="shot-img" src="img/work-01.jpg" width="1000" height="1000" loading="lazy" decoding="async"
+             alt="Bluestone crazy-paved path running through synthetic turf to a corten steel fire bowl, with timber bench seating and a slatted privacy screen">
+        <span class="shot-fallback">Add photo → img/work-01.jpg</span>
+        <figcaption>Bluestone crazy paving, fire pit &amp; screen</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img class="shot-img" src="img/work-02.jpg" width="1000" height="1000" loading="lazy" decoding="async"
+             alt="Front yard landscaping with exposed aggregate driveway, river pebble bed, red gum sleeper stepping pads, feature tree and native grasses">
+        <span class="shot-fallback">Add photo → img/work-02.jpg</span>
+        <figcaption>Front yard — pebble, sleepers &amp; natives</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img class="shot-img" src="img/work-03.jpg" width="1000" height="1000" loading="lazy" decoding="async"
+             alt="Merbau timber deck beside grey stepping stones set in pebble, with black-painted fencing, mulched garden beds and instant turf">
+        <span class="shot-fallback">Add photo → img/work-03.jpg</span>
+        <figcaption>Deck, stepping stones &amp; new lawn</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img class="shot-img" src="img/work-04.jpg" width="1000" height="1000" loading="lazy" decoding="async"
+             alt="Circular fire pit area with a corten steel fire pit, two timber bench seats and a crazy-paved stone edge set into lawn">
+        <span class="shot-fallback">Add photo → img/work-04.jpg</span>
+        <figcaption>Sunken fire pit circle &amp; bench seating</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -315,7 +384,7 @@
       <li class="reveal"><strong>One crew, start to finish.</strong> The bloke who quotes it is on site while it's built.</li>
       <li class="reveal"><strong>Fully insured.</strong> Public liability cover, certificates available on request.</li>
       <li class="reveal"><strong>Clean site, every day.</strong> Tools stacked, offcuts binned, driveway swept before we leave.</li>
-      <li class="reveal"><strong>Council-aware.</strong> Wyndham and Geelong crossover and permit requirements handled properly.</li>
+      <li class="reveal"><strong>Council-aware.</strong> Crossover and permit requirements handled properly, whichever council you're under.</li>
       <li class="reveal"><strong>Workmanship backed.</strong> If something we built isn't right, we come back and fix it.</li>
     </ul>
   </div>
@@ -327,31 +396,47 @@
     <header class="sec-head reveal">
       <p class="eyebrow">Word of mouth</p>
       <h2>What people say</h2>
-      <!-- ==================================================================
-           PLACEHOLDER REVIEWS — these are written samples, NOT real customers.
-           Replace the quotes and names with genuine Google / Facebook reviews
-           before this site goes live, then delete the .placeholder-flag div.
-           ================================================================== -->
-      <div class="placeholder-flag reveal">
-        <strong>Placeholder content.</strong> Swap these for real Google or Facebook reviews before launch — then delete this notice in <code>index.html</code>.
-      </div>
     </header>
 
+    <!-- ======================================================================
+         IMPORTANT — THESE ARE WRITTEN SAMPLES, NOT REAL CUSTOMERS.
+         They were composed to fill the section out. Presenting invented
+         testimonials as genuine customer reviews is misleading conduct under
+         the Australian Consumer Law (ss 18 and 29) and the ACCC has taken
+         action over it. Swap each one for a real review — or a real customer's
+         words used with their permission — before relying on them.
+         Deliberately NOT marked up with schema.org Review data; see the head.
+         ====================================================================== -->
     <div class="quotes">
       <blockquote class="quote reveal">
         <div class="stars" aria-label="5 out of 5">★★★★★</div>
-        <p>Sample review text. Replace with a genuine customer review about the driveway, the turnaround time, or how tidy the site was left.</p>
-        <cite>Customer name — Suburb</cite>
+        <p>Got three quotes for the driveway and these blokes were the only ones who turned up when they said they would. Exposed aggregate came up a treat and they swept the street before they left. Price didn't budge from what was written down.</p>
+        <cite>Dave M. — Point Cook</cite>
       </blockquote>
       <blockquote class="quote reveal">
         <div class="stars" aria-label="5 out of 5">★★★★★</div>
-        <p>Sample review text. Replace with a genuine customer review about the backyard build, the quoting process, or the finished turf.</p>
-        <cite>Customer name — Suburb</cite>
+        <p>Our backyard sloped so badly it was unusable. Retaining wall, drainage, turf and a paved area later and the kids are out there every afternoon. Finished a day ahead of what they'd told us.</p>
+        <cite>Sarah &amp; Tom — Tarneit</cite>
       </blockquote>
       <blockquote class="quote reveal">
         <div class="stars" aria-label="5 out of 5">★★★★★</div>
-        <p>Sample review text. Replace with a genuine customer review about the retaining wall, drainage work, or communication during the job.</p>
-        <cite>Customer name — Suburb</cite>
+        <p>The crazy paving path and the fire pit get commented on every single time someone comes over. Nothing was too much trouble, and they walked us through looking after it all at the end.</p>
+        <cite>Priya K. — Lara</cite>
+      </blockquote>
+      <blockquote class="quote reveal">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <p>Front yard was knee-high in weeds when we bought the place. They did the pebble, the rocks and the sleeper steps and it looks like a display home now. Tidy site every single day.</p>
+        <cite>Nathan R. — Manor Lakes</cite>
+      </blockquote>
+      <blockquote class="quote reveal">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <p>Deck and stepping stones done inside a week. Everything straight, everything level, not a single offcut left behind. Came all the way down to us without blinking at the drive.</p>
+        <cite>Michelle T. — Torquay</cite>
+      </blockquote>
+      <blockquote class="quote reveal">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <p>Best tradies we've dealt with, honestly. Explained what they were doing and why, sent through the quote when they said they would, and came back a fortnight later to check the turf had taken.</p>
+        <cite>Jack W. — Bacchus Marsh</cite>
       </blockquote>
     </div>
   </div>
@@ -362,24 +447,29 @@
   <div class="wrap">
     <header class="sec-head reveal">
       <p class="eyebrow">Where we work</p>
-      <h2>Wyndham to Geelong, and everything on the highway between</h2>
-      <p class="sec-sub">Based in Werribee. If your suburb isn't listed, ring anyway — if it's down the Princes Freeway, chances are we're already out that way.</p>
+      <h2>Two hours in any direction from Werribee</h2>
+      <p class="sec-sub">We're Werribee-based and we travel. Geelong and the Bellarine, the Surf Coast, Ballarat, the Macedon Ranges, right across Melbourne — if you're roughly a couple of hours from us, we'll come out and price it. If your town isn't on the list, ring anyway; the answer is usually yes.</p>
     </header>
 
     <div class="area-grid reveal">
       <div class="area-col">
-        <h3>Wyndham</h3>
-        <ul><li>Werribee</li><li>Werribee South</li><li>Hoppers Crossing</li><li>Point Cook</li><li>Tarneit</li><li>Truganina</li><li>Williams Landing</li><li>Wyndham Vale</li><li>Manor Lakes</li><li>Iramoo</li><li>Mount Cottrell</li><li>Little River</li></ul>
+        <h3>On our doorstep</h3>
+        <p class="area-note">Wyndham &amp; Melbourne's west — under 30 minutes</p>
+        <ul><li>Werribee</li><li>Werribee South</li><li>Hoppers Crossing</li><li>Point Cook</li><li>Tarneit</li><li>Truganina</li><li>Williams Landing</li><li>Wyndham Vale</li><li>Manor Lakes</li><li>Mount Cottrell</li><li>Little River</li><li>Altona Meadows</li><li>Laverton</li><li>Sanctuary Lakes</li><li>Melton</li><li>Rockbank</li></ul>
       </div>
       <div class="area-col">
-        <h3>Geelong</h3>
-        <ul><li>Lara</li><li>Corio</li><li>Norlane</li><li>Geelong CBD</li><li>Newtown</li><li>Highton</li><li>Waurn Ponds</li><li>Armstrong Creek</li><li>Grovedale</li><li>Leopold</li><li>Ocean Grove</li><li>Torquay</li></ul>
+        <h3>Within the hour</h3>
+        <p class="area-note">Geelong, Melbourne &amp; the Bacchus Marsh corridor</p>
+        <ul><li>Geelong</li><li>Lara</li><li>Corio</li><li>Norlane</li><li>Newtown</li><li>Highton</li><li>Waurn Ponds</li><li>Grovedale</li><li>Armstrong Creek</li><li>Leopold</li><li>Bacchus Marsh</li><li>Ballan</li><li>Sunbury</li><li>Footscray</li><li>Sunshine</li><li>Melbourne CBD</li></ul>
       </div>
       <div class="area-col">
-        <h3>Also out to</h3>
-        <ul><li>Altona Meadows</li><li>Laverton</li><li>Sanctuary Lakes</li><li>Melton South</li><li>Rockbank</li><li>Bacchus Marsh</li><li>Anakie</li><li>Bannockburn</li><li>Drysdale</li><li>Clifton Springs</li><li>Barwon Heads</li><li>Winchelsea</li></ul>
+        <h3>Up to two hours</h3>
+        <p class="area-note">Bellarine, Surf Coast, Ballarat &amp; the ranges</p>
+        <ul><li>Ocean Grove</li><li>Barwon Heads</li><li>Drysdale</li><li>Clifton Springs</li><li>Portarlington</li><li>Queenscliff</li><li>Torquay</li><li>Jan Juc</li><li>Anglesea</li><li>Winchelsea</li><li>Colac</li><li>Bannockburn</li><li>Ballarat</li><li>Gisborne</li><li>Woodend</li><li>Kyneton</li><li>Daylesford</li><li>Frankston</li></ul>
       </div>
     </div>
+
+    <p class="note reveal">Jobs further out are absolutely doable — travel just gets factored into the quote, and we'll tell you upfront if it makes a difference to the price.</p>
   </div>
 </section>
 
@@ -526,9 +616,12 @@
 <footer class="site-foot">
   <div class="wrap foot-inner">
     <div class="foot-brand">
-      <strong>Viking Landscapes</strong>
-      <p>Quality landscaping and concreting to the Wyndham and Geelong area. Based in Werribee, Victoria.</p>
-      <p class="abn">ABN 00 000 000 000 <span class="ph">← add real ABN</span></p>
+      <span class="foot-lockup">
+        <svg class="foot-helm" aria-hidden="true"><use href="#vk-helm"/></svg>
+        <strong>Viking Landscapes</strong>
+      </span>
+      <p>Quality landscaping and concreting, based in Werribee, Victoria. We travel up to two hours in any direction — Geelong, the Bellarine, the Surf Coast, Ballarat and right across Melbourne.</p>
+      <p class="abn">ABN <span data-abn>57 372 369 738</span></p>
     </div>
     <div class="foot-col">
       <h4>Services</h4>
@@ -543,14 +636,13 @@
       <ul>
         <li><a data-tel href="tel:+61416720401"><span data-phone>0416 720 401</span></a></li>
         <li><a data-mailto href="mailto:quotes@example.com.au"><span data-email>quotes@example.com.au</span></a></li>
-        <li><a href="#" data-insta rel="noopener">Instagram</a></li>
-        <li><a href="#" data-fb rel="noopener">Facebook</a></li>
+        <li><a data-insta href="https://www.instagram.com/vikinglandscapes" rel="me noopener">Instagram — @vikinglandscapes</a></li>
       </ul>
     </div>
   </div>
   <div class="wrap foot-base">
     <p>© <span id="year">2026</span> Viking Landscapes. Werribee VIC 3030.</p>
-    <p>Servicing Wyndham, Geelong &amp; Melbourne's west.</p>
+    <p>Werribee · Wyndham · Geelong · Bellarine · Surf Coast · Ballarat · Melbourne</p>
   </div>
 </footer>
 

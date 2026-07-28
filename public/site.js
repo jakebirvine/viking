@@ -12,8 +12,8 @@
     phone:    '0416 720 401',                      // display format
     phoneIntl:'+61416720401',                      // dialable format
     email:    'quotes@example.com.au',             // PLACEHOLDER: real inbox
-    instagram:'https://instagram.com/',            // PLACEHOLDER: real profile URL
-    facebook: 'https://facebook.com/'              // PLACEHOLDER: real page URL
+    abn:      '57 372 369 738',                    // display format, grouped 2-3-3-3
+    instagram:'https://www.instagram.com/vikinglandscapes'
   };
   /* ==================================================================== */
 
@@ -24,10 +24,10 @@
   /* ------------------------------------------------- hydrate contact info */
   $$('[data-phone]').forEach(function (el) { el.textContent = CONFIG.phone; });
   $$('[data-email]').forEach(function (el) { el.textContent = CONFIG.email; });
+  $$('[data-abn]').forEach(function (el) { el.textContent = CONFIG.abn; });
   $$('[data-tel]').forEach(function (el) { el.href = 'tel:' + CONFIG.phoneIntl; });
   $$('[data-mailto]').forEach(function (el) { el.href = 'mailto:' + CONFIG.email; });
   $$('[data-insta]').forEach(function (el) { el.href = CONFIG.instagram; el.target = '_blank'; });
-  $$('[data-fb]').forEach(function (el) { el.href = CONFIG.facebook; el.target = '_blank'; });
   var yr = $('#year'); if (yr) yr.textContent = new Date().getFullYear();
 
   /* --------------------------------------------------------------- header */
@@ -133,16 +133,14 @@
   }
 
   /* ------------------------------------------------------------- gallery
-     Drop real photos into public/img/ using the filenames in data-src and
-     they replace the dashed placeholders automatically.                    */
-  $$('.shot-img[data-src]').forEach(function (el) {
-    var src = el.getAttribute('data-src');
-    var img = new Image();
-    img.onload = function () {
-      el.style.backgroundImage = 'url("' + src + '")';
-      el.classList.add('has-img');
-    };
-    img.src = src;
+     Real <img> tags so the photos are indexable and carry alt text. Until
+     the files exist in public/img/ each one 404s, so swap the tile to a
+     dashed placeholder instead of showing a broken-image icon.            */
+  $$('img.shot-img').forEach(function (img) {
+    function fail() { img.closest('.shot').classList.add('missing'); }
+    img.addEventListener('error', fail);
+    // a cached 404 can fire before this script runs
+    if (img.complete && img.naturalWidth === 0) fail();
   });
 
   /* ------------------------------------------------------------ the form */

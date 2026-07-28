@@ -982,6 +982,15 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('load', refresh);
 
+  // A hidden document runs no rendering lifecycle, so neither ResizeObserver nor
+  // rAF fires and the canvas can never size itself — a tab opened in the
+  // background starts at 300x150 and unpainted. The rAF loop repairs that on the
+  // first frame once visible, but reduced-motion visitors have no rAF loop, so
+  // catch the transition explicitly.
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) refresh();
+  });
+
   resize();
   onScroll();
   p = target;
